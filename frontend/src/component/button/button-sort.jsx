@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectProducts } from '../../redux/selectors';
-import { getSortProductsAsync } from '../../redux/action/index.jsx';
+import {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {selectProducts} from '../../redux/selectors';
+import {getSortProductsAsync} from '../../redux/action/index.jsx';
 
-const ButtonSortComponent = ({ className, field }) => {
+const ButtonSortComponent = ({className, field}) => {
 	const dispatch = useDispatch();
 	const products = useSelector(selectProducts);
 	const [sort, setSort] = useState(false);

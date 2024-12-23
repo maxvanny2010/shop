@@ -7,11 +7,11 @@ const User = require('./User');
 const Address = require('./Address');
 
 module.exports = {
-	Cart,
-	Category,
-	Comment,
-	Order,
-	Product,
-	Address,
-	User,
+    Cart,
+    Category,
+    Comment,
+    Order,
+    Product,
+    Address,
+    User,
 };

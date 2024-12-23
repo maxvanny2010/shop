@@ -1,5 +1,5 @@
-import { METHOD, PATH, requests } from '../../utils';
-import { setComments } from './set-comments.jsx';
+import {METHOD, PATH, requests} from '../../utils';
+import {setComments} from './set-comments.jsx';
 
 export const setCommentsAsync = (id) => (dispatch) => {
 	requests(`${PATH.PRODUCTS}/${id}${PATH.COMMENTS}`, METHOD.GET)

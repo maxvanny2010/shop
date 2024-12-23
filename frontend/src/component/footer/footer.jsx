@@ -1,22 +1,22 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { FooterLogo } from './element/footer-logo.jsx';
-import { FooterContacts } from './element/contacts-component.jsx';
-import { FooterAccount } from './element/account-component.jsx';
-import { FooterDownLoad } from './element/download-component.jsx';
-import { FooterInformation } from './element/information-component.jsx';
+import {FooterLogo} from './element/footer-logo.jsx';
+import {FooterContacts} from './element/contacts-component.jsx';
+import {FooterAccount} from './element/account-component.jsx';
+import {FooterDownLoad} from './element/download-component.jsx';
+import {FooterInformation} from './element/information-component.jsx';
 
-const FooterContainer = ({ className }) => {
+const FooterContainer = ({className}) => {
 	return (
 		<div className={className}>
 			<div className="footer-container">
-				<FooterContacts />
-				<FooterInformation />
-				<FooterAccount />
-				<FooterDownLoad />
+				<FooterContacts/>
+				<FooterInformation/>
+				<FooterAccount/>
+				<FooterDownLoad/>
 			</div>
 			<div className="footer-low">
-				<FooterLogo />
+				<FooterLogo/>
 			</div>
 		</div>
 	);

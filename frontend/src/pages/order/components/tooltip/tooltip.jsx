@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const ToolTipContainer = ({ className, message, ...props }) => {
+const ToolTipContainer = ({className, message, ...props}) => {
 	return (
 		<span className={className} {...props}>
 			{message}
@@ -17,7 +17,7 @@ export const ToolTip = styled(ToolTipContainer)`
 	line-height: 1.5rem;
 	color: whitesmoke;
 
-	background-color: ${({ success }) => (success ? '#699410' : '#ce2f43')};
+	background-color: ${({success}) => (success ? '#699410' : '#ce2f43')};
 	padding: 10px 15px;
 	border-radius: 5px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

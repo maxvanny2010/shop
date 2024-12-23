@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Icon } from '../../../component/index.jsx';
-import { CLOSE_MODAL, openModal, removeProductAsync, setProductData } from '../../../redux/action/index.jsx';
-import { useDispatch } from 'react-redux';
+import {Icon} from '../../../component/index.jsx';
+import {CLOSE_MODAL, openModal, removeProductAsync, setProductData} from '../../../redux/action/index.jsx';
+import {useDispatch} from 'react-redux';
 
 
-const ProductRowComponent = ({ className, product }) => {
+const ProductRowComponent = ({className, product}) => {
 	const dispatch = useDispatch();
-	const { id, name, category: { name: categoryName }, price, quantity, imageUrl } = product;
+	const {id, name, category: {name: categoryName}, price, quantity, imageUrl} = product;
 
 	const handlerRemoveProduct = (event) => {
 		event.preventDefault();

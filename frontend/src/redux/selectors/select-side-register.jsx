@@ -1,1 +1,1 @@
-export const selectSideRegister = ({ app }) => app.isRegister;
+export const selectSideRegister = ({app}) => app.isRegister;

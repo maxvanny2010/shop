@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { forwardRef } from 'react';
+import {forwardRef} from 'react';
 
 const InputContainer =
 	forwardRef(({
@@ -12,19 +12,19 @@ const InputContainer =
 			<input
 				className={className}
 				{...props}
-				ref={ref} />
+				ref={ref}/>
 		);
 	});
 
 export const Input = styled(InputContainer)`
 	all: unset;
-	width: ${({ width = '100%' }) => width};
-	font-size: ${({ fontSize = '18px' }) => fontSize};
-	height: ${({ height = '40px' }) => height};
-	padding: ${({ padding = '10px' }) => padding};
+	width: ${({width = '100%'}) => width};
+	font-size: ${({fontSize = '18px'}) => fontSize};
+	height: ${({height = '40px'}) => height};
+	padding: ${({padding = '10px'}) => padding};
 	margin: 0 0 10px;
 	color: #232121;
-	background: ${({ background = '#f5f1f1' }) => background};
+	background: ${({background = '#f5f1f1'}) => background};
 
 	&:focus {
 		outline: none;

@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 import PropTypes from 'prop-types';
-import { FooterTitle } from './title.jsx';
-import { SideActivator } from '../../side-activator/side-activator.jsx';
-import { OPEN_LOGIN, OPEN_ORDERS, OPEN_REGISTER } from '../../../redux/action/index.jsx';
-import { useSelector } from 'react-redux';
-import { selectUserId, selectUserRole } from '../../../redux/selectors/index.jsx';
-import { ROLE } from '../../../utils/index.jsx';
+import {FooterTitle} from './title.jsx';
+import {SideActivator} from '../../side-activator/side-activator.jsx';
+import {OPEN_LOGIN, OPEN_ORDERS, OPEN_REGISTER} from '../../../redux/action/index.jsx';
+import {useSelector} from 'react-redux';
+import {selectUserId, selectUserRole} from '../../../redux/selectors/index.jsx';
+import {ROLE} from '../../../utils/index.jsx';
 
-const FooterAccountContainer = ({ className }) => {
+const FooterAccountContainer = ({className}) => {
 	const isUserLoggedIn = useSelector(selectUserId);
 	const userRole = useSelector(selectUserRole);
 	const isAdmin = userRole === ROLE.ADMIN;

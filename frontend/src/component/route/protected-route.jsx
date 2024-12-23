@@ -1,8 +1,8 @@
-import { Navigate } from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { checkAccess } from '../../redux/utils/index.jsx';
+import {checkAccess} from '../../redux/utils/index.jsx';
 
-export const ProtectedRoute = ({ allowedRoles, userRole, redirectPath = '*', children }) => {
+export const ProtectedRoute = ({allowedRoles, userRole, redirectPath = '*', children}) => {
 	if (!checkAccess(allowedRoles, userRole)) {
 		return <Navigate to={redirectPath}
 						 replace

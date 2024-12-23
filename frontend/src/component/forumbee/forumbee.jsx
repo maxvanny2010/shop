@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Icon } from '../header/components/icon/icon.jsx';
-import { useNavigate } from 'react-router-dom';
-import { PATH } from '../../utils';
+import {Icon} from '../header/components/icon/icon.jsx';
+import {useNavigate} from 'react-router-dom';
+import {PATH} from '../../utils';
 
-const ForumbeeComponent = ({ className, size, id, disabled }) => {
+const ForumbeeComponent = ({className, size, id, disabled}) => {
 	const navigate = useNavigate();
 	return (
 		<div className={className}>

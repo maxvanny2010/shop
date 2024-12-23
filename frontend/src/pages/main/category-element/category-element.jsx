@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { PATH } from '../../../utils/index.jsx';
-import { LinkActive } from '../../../component/link/link-active.jsx';
+import {PATH} from '../../../utils/index.jsx';
+import {LinkActive} from '../../../component/link/link-active.jsx';
 
-const CategoryElementComponent = ({ className, id, name }) => {
+const CategoryElementComponent = ({className, id, name}) => {
 	return (
 		<li className={className}>
 			<LinkActive

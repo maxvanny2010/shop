@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const FooterTitleComponent = ({ className, children }) => {
+const FooterTitleComponent = ({className, children}) => {
 	return (
 		<h2 className={className}>
 			{children}

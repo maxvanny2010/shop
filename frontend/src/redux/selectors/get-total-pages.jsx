@@ -1,1 +1,1 @@
-export const getTotalPages = ({ products }) => products.totalPages;
+export const getTotalPages = ({products}) => products.totalPages;

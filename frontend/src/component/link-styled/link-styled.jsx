@@ -1,8 +1,20 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const StyledLinkComponent = ({ className, to, children, ...props }) => {
+const StyledLinkComponent = ({className, to, children, ...props}) => {
+	const isExternal = to.startsWith('http://') || to.startsWith('https://');
+
+	if (isExternal) {
+		return (
+			<a href={to}
+			   className={className} {...props}
+			   target="_blank"
+			   rel="noopener noreferrer">
+				{children}
+			</a>
+		);
+	}
 	return (
 		<Link to={to}
 			  className={className} {...props}>
@@ -12,7 +24,7 @@ const StyledLinkComponent = ({ className, to, children, ...props }) => {
 };
 export const StyledLink = styled(StyledLinkComponent)`
 	text-decoration: none;
-	color: ${({ color = 'lightgrey' }) => color};
+	color: ${({color = 'lightgrey'}) => color};
 	transition: transform 0.1s ease;
 	text-shadow: 1px 1px 2px rgba(38, 36, 36, 0.5);
 

@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { Navigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {Navigate} from 'react-router-dom';
+import {useForm} from 'react-hook-form';
+import {useDispatch, useSelector} from 'react-redux';
 
-import { useState } from 'react';
-import { AuthErrorForm, Button, Icon, Input, SideActivator } from '../../component';
-import { selectSideRegister, selectUserRole } from '../../redux/selectors';
-import { CLOSE_REGISTER, registration } from '../../redux/action';
-import { ROLE } from '../../utils';
-import { useResetForm } from '../../hooks';
+import {useState} from 'react';
+import {AuthErrorForm, Button, Icon, Input, SideActivator} from '../../component';
+import {selectSideRegister, selectUserRole} from '../../redux/selectors';
+import {CLOSE_REGISTER, registration} from '../../redux/action';
+import {ROLE} from '../../utils';
+import {useResetForm} from '../../hooks';
 
 const regFormSchema = yup.object().shape({
 	login: yup.string()
@@ -29,12 +29,12 @@ const regFormSchema = yup.object().shape({
 		.oneOf([yup.ref('password'), null],
 			'Password is not same'),
 });
-export const Registration = ({ className }) => {
+export const Registration = ({className}) => {
 	const {
 		register,
 		reset,
 		handleSubmit,
-		formState: { errors },
+		formState: {errors},
 	} = useForm({
 		defaultValues: {
 			login: '',
@@ -50,7 +50,7 @@ export const Registration = ({ className }) => {
 
 	useResetForm(reset);
 
-	const onSubmit = ({ login, password }) => {
+	const onSubmit = ({login, password}) => {
 		dispatch(registration(login, password))
 			.catch((error) => setServerError(`${error}`));
 	};
@@ -61,7 +61,7 @@ export const Registration = ({ className }) => {
 		|| errors?.passcheck?.message;
 	const errorMessage = errorForm || serverError;
 
-	if (roleId !== ROLE.GUEST) return <Navigate to={`#`} />;
+	if (roleId !== ROLE.GUEST) return <Navigate to={`#`}/>;
 	if (!isOpen) return null;
 	return (
 		<RegistrationContainer $isOpen={isOpen}
@@ -116,7 +116,7 @@ export const RegistrationContainer = styled.div`
 	padding: 20px;
 	background: white;
 	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-	transform: ${({ $isOpen }) => ($isOpen ? 'translateX(0)' : 'translateX(100%)')};
+	transform: ${({$isOpen}) => ($isOpen ? 'translateX(0)' : 'translateX(100%)')};
 	transition: transform 0.3s ease;
 
 	& > form {

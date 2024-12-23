@@ -1,1 +1,1 @@
-export const selectOrders = ({ orders }) => orders.orders;
+export const selectOrders = ({orders}) => orders.orders;

@@ -1,5 +1,5 @@
-import { ERROR, METHOD, PATH, requests } from '../../utils/index.jsx';
-import { setProductsData } from './set-products-data.jsx';
+import {ERROR, METHOD, PATH, requests} from '../../utils/index.jsx';
+import {setProductsData} from './set-products-data.jsx';
 
 export const getSortProductsAsync = (field, direction) => async (dispatch) => {
 	try {

@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const LinkActiveComponent = ({ className, to, children, ...props }) => {
+const LinkActiveComponent = ({className, to, children, ...props}) => {
 	return (
 		<NavLink
 			to={to}
-			className={({ isActive }) =>
+			className={({isActive}) =>
 				`${className} ${isActive ? 'active' : ''}`
 			}
 			{...props}
@@ -18,7 +18,7 @@ const LinkActiveComponent = ({ className, to, children, ...props }) => {
 
 export const LinkActive = styled(LinkActiveComponent)`
 	text-decoration: none;
-	color: ${({ color = 'lightgrey' }) => color};
+	color: ${({color = 'lightgrey'}) => color};
 	transition: transform 0.1s ease, background 0.25s, color 0.25s;
 
 	&.active {

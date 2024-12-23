@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
-import { CLOSE_MODAL, openModal, removeCommentAsync } from '../../../../../redux/action';
-import { selectUserRole } from '../../../../../redux/selectors/';
-import { checkAccess } from '../../../../../redux/utils';
-import { Icon } from '../../../../../component';
-import { getFormatDate, ROLE } from '../../../../../utils';
+import {CLOSE_MODAL, openModal, removeCommentAsync} from '../../../../../redux/action';
+import {selectUserRole} from '../../../../../redux/selectors/';
+import {checkAccess} from '../../../../../redux/utils';
+import {Icon} from '../../../../../component';
+import {getFormatDate, ROLE} from '../../../../../utils';
 
 const CommentContainer = ({
 							  className,
@@ -14,7 +14,7 @@ const CommentContainer = ({
 						  }) => {
 	const dispatch = useDispatch();
 	const roleId = useSelector(selectUserRole);
-	const { id, author, publishedAt, content } = comment;
+	const {id, author, publishedAt, content} = comment;
 	const isAdminModerator = checkAccess([ROLE.ADMIN], roleId);
 	const onCommentRemove = (id) => {
 		dispatch(openModal(

@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Icon, StyledLink } from '../../../../component';
-import { PATH, SYMBOLS } from '../../../../utils';
+import {Icon, StyledLink} from '../../../../component';
+import {PATH, SYMBOLS} from '../../../../utils';
 
 const ProductCardComponent = ({
 								  className,
 								  product,
 							  }) => {
-	const { id, name, price, imageUrl, category: { name: categoryName }, comments } = product;
+	const {id, name, price, imageUrl, category: {name: categoryName}, comments} = product;
 	return (
 		<div className={className}>
 			<StyledLink to={price !== 0.00 ? `${PATH.PRODUCTS}/${id}` : '#'}

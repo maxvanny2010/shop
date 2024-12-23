@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { ERROR } from '../../utils/index.jsx';
-import { CategoryElement } from '../../component/index.jsx';
-import { selectCategories } from '../../redux/selectors/index.jsx';
-import { useSelector } from 'react-redux';
+import {ERROR} from '../../utils/index.jsx';
+import {CategoryElement} from '../../component/index.jsx';
+import {selectCategories} from '../../redux/selectors/index.jsx';
+import {useSelector} from 'react-redux';
 
-const AsideComponent = ({ className }) => {
+const AsideComponent = ({className}) => {
 	const categories = useSelector(selectCategories);
 
 	return (
 		<ul className={className}>
 			{categories.length > 0 ? (
-				categories.map(({ id, name }, index) =>
+				categories.map(({id, name}, index) =>
 					<CategoryElement key={index}
 									 id={id}
 									 name={name}
 					/>)
 			) : (<CategoryElement id="-1"
-								  name={`${ERROR.CATEGORIES_MISSING}`} />)}
+								  name={`${ERROR.CATEGORIES_MISSING}`}/>)}
 		</ul>
 	);
 };

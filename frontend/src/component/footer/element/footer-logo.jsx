@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Forumbee } from '../../forumbee/forumbee.jsx';
+import {Forumbee} from '../../forumbee/forumbee.jsx';
 
-const FooterLogoContainer = ({ className }) => (
+const FooterLogoContainer = ({className}) => (
 	<div className={className}>
 		<Forumbee size="50px"
 				  id="braille"

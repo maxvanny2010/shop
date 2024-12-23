@@ -1,4 +1,4 @@
-import { ACTIONS } from '../../utils';
+import {ACTIONS} from '../../utils';
 
 export const setComments = (data) => ({
 	type: ACTIONS.COMMENTS_SET,

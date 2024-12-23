@@ -8,7 +8,7 @@ export const StyleSelect = styled.select`
 	appearance: none;
 	cursor: pointer;
 	font-size: 16px;
-	width: ${({ width = '100%' }) => width};
+	width: ${({width = '100%'}) => width};
 	transition: background-color 0.3s ease;
 	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23D3D3D3" height="10" viewBox="0 0 24 24" width="10"><path d="M7 10l5 5 5-5H7z"/></svg>');
 	background-repeat: no-repeat;

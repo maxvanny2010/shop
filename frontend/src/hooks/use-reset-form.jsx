@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useStore } from 'react-redux';
+import {useEffect} from 'react';
+import {useStore} from 'react-redux';
 
 export const useResetForm = (reset) => {
 	const store = useStore();

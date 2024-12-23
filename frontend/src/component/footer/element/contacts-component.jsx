@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Icon } from '../../header/components/icon/icon.jsx';
-import { FooterTitle } from './title.jsx';
+import {Icon} from '../../header/components/icon/icon.jsx';
+import {FooterTitle} from './title.jsx';
 
-const FooterContactsContainer = ({ className }) => {
+const FooterContactsContainer = ({className}) => {
 	return (
 		<div className={className}>
 			<FooterTitle className="bolder">Contact us</FooterTitle>

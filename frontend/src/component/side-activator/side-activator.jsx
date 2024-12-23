@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import {useDispatch} from 'react-redux';
 import PropTypes from 'prop-types';
 
-export const SideActivatorComponent = ({ className, action, children }) => {
+export const SideActivatorComponent = ({className, action, children}) => {
 	const dispatch = useDispatch();
 
 	const handleOpenLogin = () => {
@@ -20,7 +20,7 @@ export const SideActivatorComponent = ({ className, action, children }) => {
 
 export const SideActivator = styled(SideActivatorComponent)`
 	text-decoration: none;
-	color: ${({ color = 'lightgrey' }) => color};
+	color: ${({color = 'lightgrey'}) => color};
 	transition: transform 0.1s ease;
 	cursor: pointer;
 

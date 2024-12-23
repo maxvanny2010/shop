@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import { Icon } from '../../../../component';
+import {Icon} from '../../../../component';
 
 import styled from 'styled-components';
-import { TableRow } from '../table-row/table-row.jsx';
-import { StyleSelect } from '../select/style-select.jsx';
-import { useState } from 'react';
-import { getFormatDate, METHOD, PATH, requests } from '../../../../utils';
+import {TableRow} from '../table-row/table-row.jsx';
+import {StyleSelect} from '../select/style-select.jsx';
+import {useState} from 'react';
+import {getFormatDate, METHOD, PATH, requests} from '../../../../utils';
 
 export const UserRowContainer = ({
 									 className,
@@ -13,15 +13,15 @@ export const UserRowContainer = ({
 									 roles,
 									 onUserRemove,
 								 }) => {
-	const { id, login, registeredAt, roleId: userRoleId } = user;
+	const {id, login, registeredAt, roleId: userRoleId} = user;
 	const [selectedRoleId, setSelectedRoleId] = useState(userRoleId);
 	const [initialRoleId, setInitialRoleId] = useState(userRoleId);
-	const onRoleChanged = ({ target }) => {
+	const onRoleChanged = ({target}) => {
 		setSelectedRoleId(Number(target.value));
 	};
 	const onRoleSave = (userId, newRoleId) => {
 		requests(`${PATH.USERS}/${userId}`,
-			METHOD.PATCH, { roleId: newRoleId })
+			METHOD.PATCH, {roleId: newRoleId})
 			.then(() => setInitialRoleId(newRoleId));
 	};
 	const isNewSelectedRoleId = selectedRoleId === initialRoleId;
@@ -35,7 +35,7 @@ export const UserRowContainer = ({
 						<StyleSelect value={selectedRoleId}
 									 onChange={onRoleChanged}>
 							{
-								roles.map(({ id, name: roleName }) => (
+								roles.map(({id, name: roleName}) => (
 									<option key={Number(id)}
 											value={Number(id)}>{roleName}</option>
 								))

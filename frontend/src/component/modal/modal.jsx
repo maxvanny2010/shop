@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
-import { Button } from '../button/button.jsx';
-import { selectModalCancel, selectModalConfirm, selectModalOpen, selectModalText } from '../../redux/selectors';
+import {useSelector} from 'react-redux';
+import {Button} from '../button/button.jsx';
+import {selectModalCancel, selectModalConfirm, selectModalOpen, selectModalText} from '../../redux/selectors';
 
-const ModalComponent = ({ className }) => {
+const ModalComponent = ({className}) => {
 	const isOpen = useSelector(selectModalOpen);
 	const text = useSelector(selectModalText);
 	const onConfirm = useSelector(selectModalConfirm);

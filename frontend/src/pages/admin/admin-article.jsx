@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
-import { ERROR, PAGINATION_LIMIT, SYMBOLS } from '../../utils';
-import { Pagination, Search } from '../main/components/index.jsx';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProductsBySearchAdminAsync } from '../../redux/action/index.jsx';
-import { ButtonSort } from '../../component/index.jsx';
-import { ProductRow } from './component/product-row.jsx';
-import { getTotalPages, selectProducts } from '../../redux/selectors/index.jsx';
+import {useEffect, useState} from 'react';
+import {ERROR, PAGINATION_LIMIT, SYMBOLS} from '../../utils';
+import {Pagination, Search} from '../main/components/index.jsx';
+import {useDispatch, useSelector} from 'react-redux';
+import {getProductsBySearchAdminAsync} from '../../redux/action/index.jsx';
+import {ButtonSort} from '../../component/index.jsx';
+import {ProductRow} from './component/product-row.jsx';
+import {getTotalPages, selectProducts} from '../../redux/selectors/index.jsx';
 
-const AdminArticleComponent = ({ className }) => {
+const AdminArticleComponent = ({className}) => {
 	const dispatch = useDispatch();
 	const totalPages = useSelector(getTotalPages);
 	const products = useSelector(selectProducts);
@@ -30,7 +30,7 @@ const AdminArticleComponent = ({ className }) => {
 			.finally(() => setIsLoading(false));
 	}, [debouncedSearchPhrase, dispatch]);
 
-	const onSearch = ({ target }) => {
+	const onSearch = ({target}) => {
 		setSearchPhrase(target.value);
 	};
 	const placeholderRows = Array.from({
@@ -57,13 +57,13 @@ const AdminArticleComponent = ({ className }) => {
 						<th className="table-header-item">
 							<div className="header-block">
 								<div className="start">price</div>
-								<div className="end"><ButtonSort field={'price'} /></div>
+								<div className="end"><ButtonSort field={'price'}/></div>
 							</div>
 						</th>
 						<th className="table-header-item">
 							<div className="header-block">
 								<div className="start">quantity</div>
-								<div className="end"><ButtonSort field={'quantity'} /></div>
+								<div className="end"><ButtonSort field={'quantity'}/></div>
 							</div>
 						</th>
 						<th className="table-header-item"> image
@@ -79,7 +79,7 @@ const AdminArticleComponent = ({ className }) => {
 						products.length > 0 ? (
 								products.map((product, index) => (
 									<ProductRow key={index}
-												product={product} />
+												product={product}/>
 								)))
 							: (
 								<tr>
@@ -105,7 +105,7 @@ const AdminArticleComponent = ({ className }) => {
 					</tbody>
 				</table>
 				<div className="pagination-cell">
-					{totalPages > 1 && products.length > 0 && (<Pagination />)}
+					{totalPages > 1 && products.length > 0 && (<Pagination/>)}
 				</div>
 			</div>
 		</article>

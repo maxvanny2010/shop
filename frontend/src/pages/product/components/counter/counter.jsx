@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-export const CounterComponent = ({ className, counter, setCounter }) => {
+export const CounterComponent = ({className, counter, setCounter}) => {
 	const handleIncrement = () => {
 		setCounter((prevCount) => prevCount + 1);
 	};
@@ -46,8 +46,8 @@ export const Counter = styled(CounterComponent)`
 
 	.button-minus,
 	.button-plus {
-		font-size: ${({ sizeFactor }) => `calc(20px * ${sizeFactor})`};
-		padding: ${({ sizeFactor }) => `calc(5px * ${sizeFactor}) calc(20px * ${sizeFactor})`};
+		font-size: ${({sizeFactor}) => `calc(20px * ${sizeFactor})`};
+		padding: ${({sizeFactor}) => `calc(5px * ${sizeFactor}) calc(20px * ${sizeFactor})`};
 		background-color: #0567ce;
 		color: white;
 		border: none;
@@ -62,9 +62,9 @@ export const Counter = styled(CounterComponent)`
 	}
 
 	& span.count {
-		font-size: ${({ sizeFactor }) => `calc(24px * ${sizeFactor})`};
+		font-size: ${({sizeFactor}) => `calc(24px * ${sizeFactor})`};
 		font-weight: bold;
-		min-width: ${({ sizeFactor }) => `calc(60px * ${sizeFactor})`};
+		min-width: ${({sizeFactor}) => `calc(60px * ${sizeFactor})`};
 		text-align: center;
 	}
 `;

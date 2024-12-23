@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Icon } from '../../../component/index.jsx';
-import { getFormatDate, SYMBOLS } from '../../../utils/index.jsx';
-import { useDispatch } from 'react-redux';
-import { removeOrderAsync } from '../../../redux/action/index.jsx';
+import {Icon} from '../../../component/index.jsx';
+import {getFormatDate, SYMBOLS} from '../../../utils/index.jsx';
+import {useDispatch} from 'react-redux';
+import {removeOrderAsync} from '../../../redux/action/index.jsx';
 
-export const OrderSliderCardComponent = ({ className, order }) => {
-	const { orderId, totalPrice, shipmentPrice, createdAt } = order;
+export const OrderSliderCardComponent = ({className, order}) => {
+	const {orderId, totalPrice, shipmentPrice, createdAt} = order;
 	const dispatch = useDispatch();
 	const handlerRemoveOrder = (event) => {
 		event.preventDefault();

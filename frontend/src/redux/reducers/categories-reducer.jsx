@@ -1,7 +1,7 @@
-import { ACTIONS } from '../../utils';
+import {ACTIONS} from '../../utils';
 
 const initialCategoryState = {
-	categories: [{ id: 'catalog', name: 'Catalog', imageUrl: '/access/images/colors/catalog/brown.jpg' }],
+	categories: [{id: 'catalog', name: 'Catalog', imageUrl: '/access/images/colors/catalog/brown.jpg'}],
 };
 export const categoriesReducer = (state = initialCategoryState, action) => {
 	switch (action.type) {
@@ -15,7 +15,7 @@ export const categoriesReducer = (state = initialCategoryState, action) => {
 			};
 		}
 		case ACTIONS.CATEGORY_ADD: {
-			const { data } = action.payload;
+			const {data} = action.payload;
 			return {
 				...state,
 				categories: [...state.categories, data],

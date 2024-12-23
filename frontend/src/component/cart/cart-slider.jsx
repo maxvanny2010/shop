@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
-import { PATH, ROLE, SYMBOLS } from '../../utils';
-import { Button, CartProductCard, Icon, SideActivator } from '../../component';
-import { selectCart, selectSideCart, selectUserRole } from '../../redux/selectors';
-import { CLOSE_CART } from '../../redux/action';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { useScrollBodyControl } from '../../hooks/index.jsx';
+import {PATH, ROLE, SYMBOLS} from '../../utils';
+import {Button, CartProductCard, Icon, SideActivator} from '../../component';
+import {selectCart, selectSideCart, selectUserRole} from '../../redux/selectors';
+import {CLOSE_CART} from '../../redux/action';
+import {Navigate, useNavigate} from 'react-router-dom';
+import {useScrollBodyControl} from '../../hooks/index.jsx';
 
-export const CartSlider = ({ className }) => {
+export const CartSlider = ({className}) => {
 		const dispatch = useDispatch();
 		const navigate = useNavigate();
 		const roleId = useSelector(selectUserRole);
 		const isOpen = useSelector(selectSideCart);
 		const cart = useSelector(selectCart);
-		const { products, shipmentPrice, productsPrice, totalPrice } = cart;
+		const {products, shipmentPrice, productsPrice, totalPrice} = cart;
 		const handlerOrder = () => {
 			dispatch(CLOSE_CART);
 			navigate(`${PATH.ORDERS}`);
@@ -24,7 +24,7 @@ export const CartSlider = ({ className }) => {
 			dispatch(CLOSE_CART);
 		};
 		useScrollBodyControl(isOpen);
-		if (roleId !== ROLE.USER) return <Navigate to={`#`} />;
+		if (roleId !== ROLE.USER) return <Navigate to={`#`}/>;
 		if (products.length === 0) dispatch(CLOSE_CART);
 		if (!isOpen) return null;
 		return (
@@ -43,7 +43,7 @@ export const CartSlider = ({ className }) => {
 					</div>
 					<div className="cards">
 						{
-							products.length > 0 && products.map(({ product }, index) => (
+							products.length > 0 && products.map(({product}, index) => (
 								<CartProductCard
 									key={index}
 									product={product}
@@ -86,7 +86,7 @@ export const CartContainer = styled.div`
 	padding: 20px;
 	background: white;
 	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-	transform: ${({ $isOpen }) => ($isOpen ? 'translateX(0)' : 'translateX(100%)')};
+	transform: ${({$isOpen}) => ($isOpen ? 'translateX(0)' : 'translateX(100%)')};
 	transition: transform 0.3s ease;
 
 	.cards-container {

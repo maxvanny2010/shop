@@ -1,1 +1,1 @@
-export const selectCategories = ({ categories }) => categories.categories;
+export const selectCategories = ({categories}) => categories.categories;

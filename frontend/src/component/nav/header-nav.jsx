@@ -1,45 +1,45 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { PATH } from '../../utils/index.jsx';
-import { StyledLink } from '../link-styled/link-styled.jsx';
-import { selectCategories, selectProduct } from '../../redux/selectors/index.jsx';
+import {useLocation} from 'react-router-dom';
+import {useEffect, useState} from 'react';
+import {useSelector} from 'react-redux';
+import {PATH} from '../../utils/index.jsx';
+import {StyledLink} from '../link-styled/link-styled.jsx';
+import {selectCategories, selectProduct} from '../../redux/selectors/index.jsx';
 
 const createLinks = (path, categories, product) => {
-	let links = [{ name: 'Home', path: PATH.HOME }];
+	let links = [{name: 'Home', path: PATH.HOME}];
 	if (location.pathname.includes('categories')) {
 		const id = location.pathname.split('/')[2];
 		const name = categories.find(category => category.id === id)?.name;
-		links.push({ name, path });
+		links.push({name, path});
 	}
 	if (location.pathname.split('/')[1].includes('products')) {
 		if (product.id) {
-			const { name, category } = product;
+			const {name, category} = product;
 			let categoryName = category.name;
 			links.push({
 				name: categoryName,
 				path: `${PATH.CATEGORIES}/${category.id}${PATH.PRODUCTS}`,
 			});
-			links.push({ name, path });
+			links.push({name, path});
 		}
 	}
 	if (location.pathname.includes(PATH.CARTS)) {
-		links.push({ name: 'Carts', path });
+		links.push({name: 'Carts', path});
 	}
 	if (location.pathname.includes(PATH.ORDERS)) {
-		links.push({ name: 'Orders', path });
+		links.push({name: 'Orders', path});
 	}
 	if (location.pathname.includes(PATH.USERS)) {
-		links.push({ name: 'Users', path });
+		links.push({name: 'Users', path});
 	}
 	if (location.pathname.includes(PATH.ADMIN)) {
-		links.push({ name: 'Admin', path });
+		links.push({name: 'Admin', path});
 	}
 	return links;
 };
-const HeaderNavComponent = ({ className }) => {
+const HeaderNavComponent = ({className}) => {
 	const categories = useSelector(selectCategories);
 	const product = useSelector(selectProduct);
 	const location = useLocation();

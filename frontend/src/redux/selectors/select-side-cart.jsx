@@ -1,1 +1,1 @@
-export const selectSideCart = ({ app }) => app.isCart;
+export const selectSideCart = ({app}) => app.isCart;

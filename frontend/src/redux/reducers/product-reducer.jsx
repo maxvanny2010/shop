@@ -1,4 +1,4 @@
-import { ACTIONS, UNITS } from '../../utils';
+import {ACTIONS, UNITS} from '../../utils';
 
 const initialProductState = {
 	product: {
@@ -27,7 +27,7 @@ export const productReducer = (state = initialProductState, action) => {
 			};
 		}
 		case ACTIONS.COMMENTS_SET: {
-			const { data } = action.payload;
+			const {data} = action.payload;
 			return {
 				...state,
 				product: {
@@ -37,7 +37,7 @@ export const productReducer = (state = initialProductState, action) => {
 			};
 		}
 		case ACTIONS.COMMENT_ADD: {
-			const { data } = action.payload;
+			const {data} = action.payload;
 			return {
 				...state,
 				product: {

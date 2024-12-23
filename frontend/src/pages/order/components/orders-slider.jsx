@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
-import { Navigate } from 'react-router-dom';
-import { ROLE } from '../../../utils/index.jsx';
-import { CLOSE_ORDERS, getOrdersAsync } from '../../../redux/action/index.jsx';
-import { selectOrders, selectSideOrders, selectUserId, selectUserRole } from '../../../redux/selectors/index.jsx';
-import { Button, Icon, SideActivator } from '../../../component/index.jsx';
-import { OrderSliderCard } from './order-slider-card.jsx';
-import { useEffect } from 'react';
-import { useScrollBodyControl } from '../../../hooks/index.jsx';
+import {Navigate} from 'react-router-dom';
+import {ROLE} from '../../../utils/index.jsx';
+import {CLOSE_ORDERS, getOrdersAsync} from '../../../redux/action/index.jsx';
+import {selectOrders, selectSideOrders, selectUserId, selectUserRole} from '../../../redux/selectors/index.jsx';
+import {Button, Icon, SideActivator} from '../../../component/index.jsx';
+import {OrderSliderCard} from './order-slider-card.jsx';
+import {useEffect} from 'react';
+import {useScrollBodyControl} from '../../../hooks/index.jsx';
 
-export const OrdersSlider = ({ className }) => {
+export const OrdersSlider = ({className}) => {
 		const dispatch = useDispatch();
 		const roleId = useSelector(selectUserRole);
 		const isUserLoggedIn = useSelector(selectUserId);
@@ -25,7 +25,7 @@ export const OrdersSlider = ({ className }) => {
 			if (isUserLoggedIn && !isAdmin) dispatch(getOrdersAsync());
 		}, [dispatch, isAdmin, isUserLoggedIn]);
 		useScrollBodyControl(isOpen);
-		if (roleId !== ROLE.USER) return <Navigate to={`#`} />;
+		if (roleId !== ROLE.USER) return <Navigate to={`#`}/>;
 		if (!isOpen) return null;
 		return (
 			<OrderSliderContainer $isOpen={isOpen}
@@ -79,7 +79,7 @@ export const OrderSliderContainer = styled.div`
 	padding: 20px;
 	background: white;
 	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-	transform: ${({ $isOpen }) => ($isOpen ? 'translateX(0)' : 'translateX(100%)')};
+	transform: ${({$isOpen}) => ($isOpen ? 'translateX(0)' : 'translateX(100%)')};
 	transition: transform 0.3s ease;
 
 	.orders-container {

@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 
-import { Comment } from './index.jsx';
-import { Icon } from '../../../../component';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectProduct, selectUserRole } from '../../../../redux/selectors';
-import { addCommentAsync, setCommentsAsync } from '../../../../redux/action';
-import { ROLE } from '../../../../utils';
-import { checkAccess } from '../../../../redux/utils';
+import {Comment} from './index.jsx';
+import {Icon} from '../../../../component';
+import {useDispatch, useSelector} from 'react-redux';
+import {selectProduct, selectUserRole} from '../../../../redux/selectors';
+import {addCommentAsync, setCommentsAsync} from '../../../../redux/action';
+import {ROLE} from '../../../../utils';
+import {checkAccess} from '../../../../redux/utils';
 
-export const CommentContainer = ({ className }) => {
+export const CommentContainer = ({className}) => {
 	const dispatch = useDispatch();
 	const roleId = useSelector(selectUserRole);
-	const { id, comments = [] } = useSelector(selectProduct);
+	const {id, comments = []} = useSelector(selectProduct);
 	const isGuest = checkAccess([ROLE.GUEST], roleId);
 	const [newComment, setNewComment] = useState('');
 	useEffect(() => {
@@ -31,7 +31,7 @@ export const CommentContainer = ({ className }) => {
 				name="comment"
 				value={newComment}
 				placeholder="comments..."
-				onChange={({ target }) =>
+				onChange={({target}) =>
 					setNewComment(target.value)}>
 			</textarea>
 					<Icon

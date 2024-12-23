@@ -1,1 +1,1 @@
-export const selectModalText = ({ app }) => app.modal.text;
+export const selectModalText = ({app}) => app.modal.text;

@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {Link, useNavigate} from 'react-router-dom';
 
-import { PATH, ROLE } from '../../../../utils';
-import { selectCartCount } from '../../../../redux/selectors/select-cart-count.jsx';
-import { selectUserLogin, selectUserRole } from '../../../../redux/selectors';
-import { SideActivator } from '../../../side-activator/side-activator.jsx';
-import { logoutAsync, OPEN_CART, OPEN_LOGIN } from '../../../../redux/action';
-import { checkAccess } from '../../../../redux/utils';
-import { Icon } from '../icon/icon.jsx';
+import {PATH, ROLE} from '../../../../utils';
+import {selectCartCount} from '../../../../redux/selectors/select-cart-count.jsx';
+import {selectUserLogin, selectUserRole} from '../../../../redux/selectors';
+import {SideActivator} from '../../../side-activator/side-activator.jsx';
+import {logoutAsync, OPEN_CART, OPEN_LOGIN} from '../../../../redux/action';
+import {checkAccess} from '../../../../redux/utils';
+import {Icon} from '../icon/icon.jsx';
 
 const LoggingRow = styled.div`
 	display: flex;
@@ -27,16 +27,16 @@ const CartNavigate = styled.div`
 	margin: 0;
 
 	&::after {
-		content: ${({ $count }) => ($count > -1 ? `'${$count}'` : '')};
+		content: ${({$count}) => ($count > -1 ? `'${$count}'` : '')};
 		position: absolute;
 		top: 3px;
 		right: -8px;
-		width: ${({ $count }) => ($count > 9 ? '24px' : '18px')};
-		height: ${({ $count }) => ($count > 9 ? '24px' : '18px')};
+		width: ${({$count}) => ($count > 9 ? '24px' : '18px')};
+		height: ${({$count}) => ($count > 9 ? '24px' : '18px')};
 		border-radius: 50%;
 		background-color: #da1818;
 		color: white;
-		font-size: ${({ $count }) => ($count > 9 ? '12px' : '10px')};
+		font-size: ${({$count}) => ($count > 9 ? '12px' : '10px')};
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -52,7 +52,7 @@ const UserLogin = styled.div`
 	margin-left: 20px;
 	font-size: 20px;
 `;
-const ControlPanelContainer = ({ className }) => {
+const ControlPanelContainer = ({className}) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const roleId = useSelector(selectUserRole);

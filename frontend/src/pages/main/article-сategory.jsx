@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { CategoryCard } from './category-card/category-card.jsx';
-import { useSelector } from 'react-redux';
-import { selectCategories } from '../../redux/selectors/index.jsx';
-import { fakeCategory } from '../../utils';
+import {CategoryCard} from './category-card/category-card.jsx';
+import {useSelector} from 'react-redux';
+import {selectCategories} from '../../redux/selectors/index.jsx';
+import {fakeCategory} from '../../utils';
 
-const ArticleCategoryComponent = ({ className }) => {
+const ArticleCategoryComponent = ({className}) => {
 	const categories = useSelector(selectCategories);
 
 	const fakeCategories = fakeCategory(categories);
@@ -15,7 +15,7 @@ const ArticleCategoryComponent = ({ className }) => {
 		<article className={className}>
 			<div className="category-list">
 				{allCategories.length > 0 ? (
-					allCategories.map(({ id, name, imageUrl }, index) =>
+					allCategories.map(({id, name, imageUrl}, index) =>
 						<CategoryCard key={index}
 									  id={id}
 									  name={name}

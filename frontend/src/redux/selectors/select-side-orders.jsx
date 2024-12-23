@@ -1,1 +1,1 @@
-export const selectSideOrders = ({ app }) => app.isOrders;
+export const selectSideOrders = ({app}) => app.isOrders;

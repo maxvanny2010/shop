@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
-import { useLayoutEffect, useState } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {useLayoutEffect, useState} from 'react';
 
 import {
 	BlurBackground,
@@ -13,11 +13,11 @@ import {
 	ProtectedRoute,
 	Registration,
 } from './component';
-import { setUser } from './redux/action';
-import { OrdersSlider } from './pages/order/components/';
-import { Route, Routes, useLocation } from 'react-router-dom';
-import { ERROR, PATH, ROLE, STORAGE_USER_DATA, SYMBOLS } from './utils';
-import { AdminArticle, AdminAside, Article, ArticleCategory, Aside, Order, Product, Users } from './pages/';
+import {setUser} from './redux/action';
+import {OrdersSlider} from './pages/order/components/';
+import {Route, Routes, useLocation} from 'react-router-dom';
+import {ERROR, PATH, ROLE, STORAGE_USER_DATA, SYMBOLS} from './utils';
+import {AdminArticle, AdminAside, Article, ArticleCategory, Aside, Order, Product, Users} from './pages/';
 import {
 	selectSideCart,
 	selectSideLogin,
@@ -94,7 +94,7 @@ export default function Shop() {
 
 	const renderAside = () => {
 		if (!isInitialized) return null;
-		return isAdminRoute && isAdmin ? <AdminAside /> : <Aside />;
+		return isAdminRoute && isAdmin ? <AdminAside/> : <Aside/>;
 	};
 	const showBlur = isSideLogin || isSideRegistered || isSideCart || isSideOrders;
 
@@ -103,29 +103,29 @@ export default function Shop() {
 	}
 	return (
 		<>
-			{showBlur && <BlurBackground />}
+			{showBlur && <BlurBackground/>}
 			<App>
-				<Header />
+				<Header/>
 				<PageContainer>
 					<MainContent>
 						<AsideWrapper>{renderAside()}</AsideWrapper>
 						<ArticleWrapper>
 							<Routes>
 								<Route path={`${PATH.HOME}`}
-									   element={<ArticleCategory />}
+									   element={<ArticleCategory/>}
 								/>
 								<Route path={`${PATH.CATEGORIES}/:categoryId${PATH.PRODUCTS}`}
-									   element={<Article />}
+									   element={<Article/>}
 								/>
 								<Route path={`${PATH.PRODUCTS}/:id`}
-									   element={<Product />}
+									   element={<Product/>}
 								/>
 								<Route
 									path={`${PATH.ADMIN}`}
 									element={
 										<ProtectedRoute allowedRoles={[ROLE.ADMIN]}
 														userRole={userRole}>
-											<AdminArticle />
+											<AdminArticle/>
 										</ProtectedRoute>
 									}
 								/>
@@ -134,7 +134,7 @@ export default function Shop() {
 									element={
 										<ProtectedRoute allowedRoles={[ROLE.ADMIN]}
 														userRole={userRole}>
-											<Users />
+											<Users/>
 										</ProtectedRoute>
 									}
 								/>
@@ -143,27 +143,27 @@ export default function Shop() {
 									element={
 										<ProtectedRoute allowedRoles={[ROLE.USER]}
 														userRole={userRole}>
-											<Order />
+											<Order/>
 										</ProtectedRoute>
 									}
 								/>
 								<Route path="*"
-									   element={<Error error={ERROR.PAGE_NOT_EXIT} />} />
+									   element={<Error error={ERROR.PAGE_NOT_EXIT}/>}/>
 							</Routes>
 						</ArticleWrapper>
 
 					</MainContent>
 
 				</PageContainer>
-				<Footer />
-				<Modal />
+				<Footer/>
+				<Modal/>
 			</App>
 
-			{isSideRegistered && <Registration />}
-			{isSideLogin && <Login />}
+			{isSideRegistered && <Registration/>}
+			{isSideLogin && <Login/>}
 
-			{isSideCart && <CartSlider />}
-			{isSideOrders && <OrdersSlider />}
+			{isSideCart && <CartSlider/>}
+			{isSideOrders && <OrdersSlider/>}
 
 		</>
 	);

@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { FooterTitle } from './title.jsx';
+import {FooterTitle} from './title.jsx';
 import appleIcon from '@assets/svg/download-component-apple.svg';
 import googleIcon from '@assets/svg/download-component-google.svg';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-const FooterDownLoadContainer = ({ className }) => {
+const FooterDownLoadContainer = ({className}) => {
 	useEffect(() => {
 
 	}, []);
@@ -17,13 +17,13 @@ const FooterDownLoadContainer = ({ className }) => {
 				<div className="download-apple">
 					<Link to={`/`}>
 						<img src={appleIcon}
-							 alt="Apple Download" />
+							 alt="Apple Download"/>
 					</Link>
 				</div>
 				<div className="download-google">
 					<Link to={`/`}>
 						<img src={googleIcon}
-							 alt="Google Download" />
+							 alt="Google Download"/>
 					</Link>
 				</div>
 			</div>

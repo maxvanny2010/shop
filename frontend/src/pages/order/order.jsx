@@ -1,17 +1,17 @@
 import * as yup from 'yup';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useForm } from 'react-hook-form';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useDispatch, useSelector } from 'react-redux';
-import { AuthErrorForm, Input } from '../../component/index.jsx';
-import { selectCart, selectUserLogin } from '../../redux/selectors/index.jsx';
-import { COUNTRIES, ERROR, METHOD, PATH, requests, SUCCESS, SYMBOLS } from '../../utils/index.jsx';
-import { addOrder, CLEAR_CART } from '../../redux/action/index.jsx';
-import { StyleSelect } from '../users/components/index.jsx';
-import { ToolTip } from './components/index.jsx';
+import {useForm} from 'react-hook-form';
+import {useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {useDispatch, useSelector} from 'react-redux';
+import {AuthErrorForm, Input} from '../../component/index.jsx';
+import {selectCart, selectUserLogin} from '../../redux/selectors/index.jsx';
+import {COUNTRIES, ERROR, METHOD, PATH, requests, SUCCESS, SYMBOLS} from '../../utils/index.jsx';
+import {addOrder, CLEAR_CART} from '../../redux/action/index.jsx';
+import {StyleSelect} from '../users/components/index.jsx';
+import {ToolTip} from './components/index.jsx';
 
 const regFormSchema = yup.object().shape({
 	name: yup.string()
@@ -37,7 +37,7 @@ const regFormSchema = yup.object().shape({
 });
 
 
-export const OrderContainer = ({ className }) => {
+export const OrderContainer = ({className}) => {
 	const email = useSelector(selectUserLogin);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isSuccess, setIsSuccess] = useState(false);
@@ -48,7 +48,7 @@ export const OrderContainer = ({ className }) => {
 		register,
 		reset,
 		handleSubmit,
-		formState: { errors },
+		formState: {errors},
 	} = useForm({
 		defaultValues: {
 			name: 'Smith', phone: '(222)22-22', email: email, address: 'Church street',
@@ -59,17 +59,17 @@ export const OrderContainer = ({ className }) => {
 	const navigate = useNavigate();
 
 	const cart = useSelector(selectCart);
-	const { id, totalPrice, shipmentPrice, productsPrice } = cart;
+	const {id, totalPrice, shipmentPrice, productsPrice} = cart;
 	const [countries, setCountries] = useState(['']);
 	const [selectedCountry, setSelectedCountry] = useState('');
 	useEffect(() => {
 		setCountries(COUNTRIES);
 		setSelectedCountry(COUNTRIES[0]);
 	}, []);
-	const onCountryChanged = ({ target }) => {
+	const onCountryChanged = ({target}) => {
 		setSelectedCountry(target.value);
 	};
-	const onSubmit = async ({ name, phone, email, address }) => {
+	const onSubmit = async ({name, phone, email, address}) => {
 		if (Object.keys(errors).length > 0) {
 			setIsFormValid(false);
 			return;
@@ -77,8 +77,8 @@ export const OrderContainer = ({ className }) => {
 		try {
 			setIsLoading(true);
 			setIsFormValid(true);
-			const orderRequest = { name, phone, email, country: selectedCountry, address };
-			const { data, error } = await requests(`${PATH.ORDERS}`, METHOD.POST, orderRequest);
+			const orderRequest = {name, phone, email, country: selectedCountry, address};
+			const {data, error} = await requests(`${PATH.ORDERS}`, METHOD.POST, orderRequest);
 			if (data) {
 				setIsSuccess(true);
 				setTimeout(() => {
@@ -193,7 +193,7 @@ export const OrderContainer = ({ className }) => {
 					<div className="order-product-text">Order #</div>
 					<div>{id.toString().substring(0, 6)}</div>
 				</div>
-				<hr />
+				<hr/>
 				<div className="order-products">
 					<div className="order-products-text smaller">Product cost:</div>
 					<div className="order-price smaller">
@@ -208,7 +208,7 @@ export const OrderContainer = ({ className }) => {
 						<div>{SYMBOLS.EURO}</div>
 					</div>
 				</div>
-				<hr />
+				<hr/>
 				<div className="order-total">
 					<div className="order-total-text">Total price:</div>
 					<div className="order-price ">
@@ -218,9 +218,9 @@ export const OrderContainer = ({ className }) => {
 				</div>
 			</div>
 			{isSuccess && <ToolTip message={SUCCESS.ORDER_CONFIRM}
-								   success="true" />}
-			{!isFormValid && <ToolTip message={ERROR.FORM_NOT_VALID} />}
-			{errorMessage && <ToolTip message={errorMessage} />}
+								   success="true"/>}
+			{!isFormValid && <ToolTip message={ERROR.FORM_NOT_VALID}/>}
+			{errorMessage && <ToolTip message={errorMessage}/>}
 		</div>
 
 	);

@@ -1,1 +1,1 @@
-export const selectSideLogin = ({ app }) => app.isLogin;
+export const selectSideLogin = ({app}) => app.isLogin;

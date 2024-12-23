@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Forumbee } from '../forumbee/forumbee.jsx';
+import {Forumbee} from '../forumbee/forumbee.jsx';
 
 const Div = styled.div`
 	display: flex;
@@ -26,12 +26,12 @@ const Div = styled.div`
 		justify-content: center;
 	}
 `;
-export const Error = ({ error }) =>
+export const Error = ({error}) =>
 	error
 	&& (
 		<Div>
 			<Forumbee size="24px"
-					  id={'braille'} />
+					  id={'braille'}/>
 			<h2>MISTAKE</h2>
 			<div className="error-content">
 				{error}

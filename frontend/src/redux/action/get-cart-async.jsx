@@ -1,5 +1,5 @@
-import { ERROR, METHOD, PATH, requests } from '../../utils/index.jsx';
-import { addCart } from './add-cart.jsx';
+import {ERROR, METHOD, PATH, requests} from '../../utils/index.jsx';
+import {addCart} from './add-cart.jsx';
 
 export const getCartAsync = () => (dispatch) => {
 	requests(`${PATH.CARTS}`, METHOD.GET)

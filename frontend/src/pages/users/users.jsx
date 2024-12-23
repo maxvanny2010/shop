@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import {useSelector} from 'react-redux';
+import {useEffect, useState} from 'react';
 
-import { selectUserRole } from '../../redux/selectors';
-import { Forumbee, PrivateContent } from '../../component';
-import { TableRow, UserRow } from './components';
-import { checkAccess } from '../../redux/utils';
-import { METHOD, PATH, requests, ROLE } from '../../utils/';
+import {selectUserRole} from '../../redux/selectors';
+import {Forumbee, PrivateContent} from '../../component';
+import {TableRow, UserRow} from './components';
+import {checkAccess} from '../../redux/utils';
+import {METHOD, PATH, requests, ROLE} from '../../utils/';
 
-export const UsersContainer = ({ className }) => {
+export const UsersContainer = ({className}) => {
 	const userRole = useSelector(selectUserRole);
 	const [roles, setRoles] = useState([]);
 	const [users, setUsers] = useState([]);
@@ -45,7 +45,7 @@ export const UsersContainer = ({ className }) => {
 						errorServer={errorMessage}>
 			<div className={className}>
 				<Forumbee size="24px"
-						  id={'braille'} />
+						  id={'braille'}/>
 				<TableRow>
 					<div className="users-header">
 						<div className="login-column">Login</div>
@@ -58,7 +58,7 @@ export const UsersContainer = ({ className }) => {
 						<UserRow
 							key={user.id}
 							user={user}
-							roles={roles.filter(({ id: roleId }) => roleId !== ROLE.GUEST)}
+							roles={roles.filter(({id: roleId}) => roleId !== ROLE.GUEST)}
 							onUserRemove={() => onUserRemove(user.id)}
 						/>
 					))

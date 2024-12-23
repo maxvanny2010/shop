@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Icon, Input } from '../../../../component';
+import {Icon, Input} from '../../../../component';
 
-const SearchComponent = ({ className, searchPhase, onChange }) => {
+const SearchComponent = ({className, searchPhase, onChange}) => {
 	return (
 		<div className={className}>
 			<Input id="search"

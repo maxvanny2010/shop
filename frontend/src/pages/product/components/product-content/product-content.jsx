@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectProduct, selectUserRole } from '../../../../redux/selectors';
-import { Counter } from '../counter/counter.jsx';
-import { useState } from 'react';
-import { Comments } from '../comments/comments.jsx';
-import { ROLE, SYMBOLS } from '../../../../utils/index.jsx';
-import { addProductCartAsync } from '../../../../redux/action/index.jsx';
+import {useDispatch, useSelector} from 'react-redux';
+import {selectProduct, selectUserRole} from '../../../../redux/selectors';
+import {Counter} from '../counter/counter.jsx';
+import {useState} from 'react';
+import {Comments} from '../comments/comments.jsx';
+import {ROLE, SYMBOLS} from '../../../../utils/index.jsx';
+import {addProductCartAsync} from '../../../../redux/action/index.jsx';
 
 export const ProductContentContainer = ({
 											className,
@@ -37,7 +37,7 @@ export const ProductContentContainer = ({
 		<div className={className}>
 			<div className="product-header">
 				<img src={imageUrl}
-					 alt={imageUrl} />
+					 alt={imageUrl}/>
 				<div className={quantity > 0 ? 'available' : 'available-not'}>available</div>
 				<div className="product-name">{name}</div>
 				<div className="product-price">
@@ -46,7 +46,7 @@ export const ProductContentContainer = ({
 				</div>
 				<div className="product-counter">
 					<Counter counter={counters}
-							 setCounter={setCounters} />
+							 setCounter={setCounters}/>
 				</div>
 				<button className="add-to-chart"
 						disabled={isGuest || isAdmin}
@@ -68,7 +68,7 @@ export const ProductContentContainer = ({
 					<span className="toggle-arrow">{isOpenedReviews ? '▼' : '◁'}</span>
 					<span className="characteristics">REVIEWS</span>
 				</div>
-				{isOpenedReviews && (<Comments />)}
+				{isOpenedReviews && (<Comments/>)}
 			</div>
 		</div>
 	);

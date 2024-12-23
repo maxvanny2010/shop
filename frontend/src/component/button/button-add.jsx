@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const ButtonAddContainer = ({ children, className, ...props }) => {
+const ButtonAddContainer = ({children, className, ...props}) => {
 	return (
 		<button className={className} {...props}>{children}</button>
 	);
@@ -15,7 +15,7 @@ export const ButtonAddNewComponent = styled(ButtonAddContainer)`
 	cursor: pointer;
 	margin: 10px 0;
 	font-size: 12px;
-	width: ${({ width = '100%' }) => width};
+	width: ${({width = '100%'}) => width};
 	transition: border-color 0.25s;
 
 	&:hover {

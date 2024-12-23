@@ -1,4 +1,4 @@
-import { ACTIONS, ROLE } from '../../utils';
+import {ACTIONS, ROLE} from '../../utils';
 
 const initialUserState = {
 	id: null,

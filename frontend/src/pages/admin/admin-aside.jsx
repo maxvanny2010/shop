@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import * as yup from 'yup';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { AuthErrorForm, Button, ButtonAddNewComponent, Input } from '../../component/index.jsx';
-import { StyleSelect } from '../users/components/index.jsx';
-import { ERROR, METHOD, PATH, requests, SUCCESS } from '../../utils/index.jsx';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCategories, selectProduct } from '../../redux/selectors/index.jsx';
-import { ToolTip } from '../order/components/index.jsx';
-import { addCategory, CLEAR_PRODUCT, updateProducts } from '../../redux/action/index.jsx';
-import { useLocation } from 'react-router-dom';
+import {useForm} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {AuthErrorForm, Button, ButtonAddNewComponent, Input} from '../../component/index.jsx';
+import {StyleSelect} from '../users/components/index.jsx';
+import {ERROR, METHOD, PATH, requests, SUCCESS} from '../../utils/index.jsx';
+import {useDispatch, useSelector} from 'react-redux';
+import {selectCategories, selectProduct} from '../../redux/selectors/index.jsx';
+import {ToolTip} from '../order/components/index.jsx';
+import {addCategory, CLEAR_PRODUCT, updateProducts} from '../../redux/action/index.jsx';
+import {useLocation} from 'react-router-dom';
 
 const categoryFormSchema = yup.object().shape({
 	newCategory: yup.string()
@@ -38,18 +38,18 @@ const productFormSchema = yup.object().shape({
 		.test('is-integer', 'Only an integer', value => Number.isInteger(Number(value))),
 });
 
-const AdminAsideComponent = ({ className }) => {
+const AdminAsideComponent = ({className}) => {
 	const dispatch = useDispatch();
 
 	const product = useSelector(selectProduct);
 	const location = useLocation();
 	const categories = useSelector(selectCategories).filter(category => category.name !== 'Catalog');
-	const { id } = product;
+	const {id} = product;
 	const {
 		register: registerCategory,
 		reset: resetCategory,
 		handleSubmit: handleSubmitCategory,
-		formState: { errors: errorsCategory },
+		formState: {errors: errorsCategory},
 	} = useForm({
 		defaultValues: {
 			newCategory: '',
@@ -61,7 +61,7 @@ const AdminAsideComponent = ({ className }) => {
 		reset,
 		handleSubmit,
 		watch,
-		formState: { errors },
+		formState: {errors},
 	} = useForm({
 		defaultValues: {
 			name: '', price: 0, quantity: 0,
@@ -95,7 +95,7 @@ const AdminAsideComponent = ({ className }) => {
 	const [errorServer, setErrorServer] = useState('');
 	const [errorMessage, setErrorMessage] = useState('');
 	const [isFormValid, setIsFormValid] = useState(true);
-	const onCategoryChanged = ({ target }) => {
+	const onCategoryChanged = ({target}) => {
 		setSelectedCategory(target.value);
 	};
 	useEffect(() => {
@@ -103,7 +103,7 @@ const AdminAsideComponent = ({ className }) => {
 		console.log('WATCH:', values, 'SELECT: ', selectedCategory);
 
 	}, [selectedCategory, watch]);
-	const onSubmit = async ({ name, price, quantity }) => {
+	const onSubmit = async ({name, price, quantity}) => {
 		if (Object.keys(errors).length > 0 || !selectedCategory) {
 			setIsFormValid(false);
 			return;
@@ -111,7 +111,7 @@ const AdminAsideComponent = ({ className }) => {
 		try {
 			setIsLoading(true);
 			setIsFormValid(true);
-			const orderRequest = { name, category: selectedCategory, price, quantity };
+			const orderRequest = {name, category: selectedCategory, price, quantity};
 			console.log('REQUEST:', orderRequest);
 			const url = `${PATH.PRODUCTS}/${id ? id : ''}`;
 			const method = id ? METHOD.PATCH : METHOD.POST;
@@ -170,7 +170,7 @@ const AdminAsideComponent = ({ className }) => {
 		setIsNewCategory(false);
 	};
 	const onSubmitCategory = async (data) => {
-		requests(`${PATH.CATEGORIES}`, METHOD.POST, { category: data })
+		requests(`${PATH.CATEGORIES}`, METHOD.POST, {category: data})
 			.then((data) => {
 				dispatch(addCategory(data));
 				setIsSuccess(true);
@@ -189,9 +189,9 @@ const AdminAsideComponent = ({ className }) => {
 		<aside className={className}>
 			<div className="form-container">
 				{isSuccess && <ToolTip message={SUCCESS.RECORD_CONFIRM}
-									   success="true" />}
-				{!isFormValid && <ToolTip message={ERROR.FORM_NOT_VALID} />}
-				{errorMessage && <ToolTip message={errorMessage} />}
+									   success="true"/>}
+				{!isFormValid && <ToolTip message={ERROR.FORM_NOT_VALID}/>}
+				{errorMessage && <ToolTip message={errorMessage}/>}
 				{
 					!isNewCategory && <ButtonAddNewComponent
 						type="button"

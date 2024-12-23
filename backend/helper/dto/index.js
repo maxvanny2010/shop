@@ -7,11 +7,11 @@ const dtoProducts = require('./dtoProducts');
 const dtoUser = require('./dtoUser');
 
 module.exports = {
-	dtoCart,
-	dtoCategory,
-	dtoComment,
-	dtoOrder,
-	dtoProduct,
-	dtoProducts,
-	dtoUser,
+    dtoCart,
+    dtoCategory,
+    dtoComment,
+    dtoOrder,
+    dtoProduct,
+    dtoProducts,
+    dtoUser,
 };

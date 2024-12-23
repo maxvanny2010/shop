@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { ROLE } from '../../utils/index.jsx';
-import { selectUserId, selectUserRole } from '../../redux/selectors/index.jsx';
-import { ControlPanel } from './components/control-panel/control-panel.jsx';
-import { getCartAsync, getCategoriesAsync } from '../../redux/action/index.jsx';
-import { Logo } from './components/logo/logo.jsx';
-import { HeaderNav } from '../nav/header-nav.jsx';
+import {useDispatch, useSelector} from 'react-redux';
+import {useEffect} from 'react';
+import {ROLE} from '../../utils/index.jsx';
+import {selectUserId, selectUserRole} from '../../redux/selectors/index.jsx';
+import {ControlPanel} from './components/control-panel/control-panel.jsx';
+import {getCartAsync, getCategoriesAsync} from '../../redux/action/index.jsx';
+import {Logo} from './components/logo/logo.jsx';
+import {HeaderNav} from '../nav/header-nav.jsx';
 
 const Description = styled.div`
 	display: flex;
@@ -29,7 +29,7 @@ const Description = styled.div`
 		letter-spacing: 1px;
 	}
 `;
-const HeaderContainer = ({ className }) => {
+const HeaderContainer = ({className}) => {
 		const dispatch = useDispatch();
 		const isUserLoggedIn = useSelector(selectUserId);
 		const isAdmin = useSelector(selectUserRole) === ROLE.ADMIN;
@@ -44,14 +44,14 @@ const HeaderContainer = ({ className }) => {
 		return (
 			<>
 				<header className={className}>
-					<Logo />
+					<Logo/>
 					<Description>
 						<span className="logo-text office"><strong>Call to office</strong></span>
 						<span className="logo-text phone-number"><strong>+353 (87) 000 00 00</strong></span>
 					</Description>
-					<ControlPanel />
+					<ControlPanel/>
 				</header>
-				<HeaderNav />
+				<HeaderNav/>
 			</>
 		);
 	}

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { StyledLink } from '../../../component/index.jsx';
-import { PATH } from '../../../utils/index.jsx';
+import {StyledLink} from '../../../component/index.jsx';
+import {PATH} from '../../../utils/index.jsx';
 
 const CategoryCardComponent = ({
 								   className,
@@ -14,7 +14,7 @@ const CategoryCardComponent = ({
 			<StyledLink to={id.includes('fake') ? '#' : `${PATH.CATEGORIES}/${id}${PATH.PRODUCTS}`}
 						color="#211e1e">
 				<img src={imageUrl}
-					 alt={imageUrl} />
+					 alt={imageUrl}/>
 				<div className="category-card-footer">
 					<h4>{name}</h4>
 				</div>

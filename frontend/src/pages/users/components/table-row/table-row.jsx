@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const TableRowContainer = ({ className, children }) => (
+const TableRowContainer = ({className, children}) => (
 	<div className={className}>{children}</div>
 
 );
 export const TableRow = styled(TableRowContainer)`
 	display: flex;
 	align-items: center;
-	border: ${({ border }) => (border ? '1px solid #435E0A' : 'none')};
+	border: ${({border}) => (border ? '1px solid #435E0A' : 'none')};
 	border-radius: 5px;
 	width: 100%;
 

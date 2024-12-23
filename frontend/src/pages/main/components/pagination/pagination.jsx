@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Button } from '../../../../component';
-import { useEffect, useState } from 'react';
-import { getProductsDataAsync } from '../../../../redux/action/index.jsx';
-import { useDispatch, useSelector } from 'react-redux';
-import { getTotalPages } from '../../../../redux/selectors/index.jsx';
+import {Button} from '../../../../component';
+import {useEffect, useState} from 'react';
+import {getProductsDataAsync} from '../../../../redux/action/index.jsx';
+import {useDispatch, useSelector} from 'react-redux';
+import {getTotalPages} from '../../../../redux/selectors/index.jsx';
 
 const PaginationComponent = ({
 								 className,
@@ -60,9 +60,9 @@ export const Pagination = styled(PaginationComponent)`
 		box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 
 		&:hover {
-			color: ${({ disabled }) => (disabled ? '' : 'white')};
-			background-color: ${({ disabled }) => (disabled ? '' : 'rgba(227,4,4,0.94)')};
-			cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+			color: ${({disabled}) => (disabled ? '' : 'white')};
+			background-color: ${({disabled}) => (disabled ? '' : 'rgba(227,4,4,0.94)')};
+			cursor: ${({disabled}) => (disabled ? 'default' : 'pointer')};
 		}
 	}
 

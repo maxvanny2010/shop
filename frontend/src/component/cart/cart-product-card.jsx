@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { changeQuantityAsync, removeCartAsync } from '../../redux/action/index.jsx';
-import { Icon } from '../header/components/icon/icon.jsx';
-import { Counter } from '../../pages/product/components/index.jsx';
-import { useEffect, useState } from 'react';
-import { SYMBOLS } from '../../utils/index.jsx';
-import { Button } from '../button/button.jsx';
+import {useDispatch} from 'react-redux';
+import {changeQuantityAsync, removeCartAsync} from '../../redux/action/index.jsx';
+import {Icon} from '../header/components/icon/icon.jsx';
+import {Counter} from '../../pages/product/components/index.jsx';
+import {useEffect, useState} from 'react';
+import {SYMBOLS} from '../../utils/index.jsx';
+import {Button} from '../button/button.jsx';
 
-export const CartProductCartComponent = ({ className, product }) => {
+export const CartProductCartComponent = ({className, product}) => {
 	const dispatch = useDispatch();
 	const [counters, setCounters] = useState(1);
-	const { id, name, imageUrl, price, counter } = product;
+	const {id, name, imageUrl, price, counter} = product;
 	const isChangeCounter = counters !== counter;
 	const handlerRemoveProductFromCart = (event) => {
 		event.preventDefault();

@@ -1,4 +1,4 @@
-import { ACTIONS } from '../../utils';
+import {ACTIONS} from '../../utils';
 
 const initialAppState = {
 	isLogout: false,

@@ -1,6 +1,6 @@
-import { thunk } from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-import { applyMiddleware, combineReducers, compose, legacy_createStore as createStore } from 'redux';
+import {thunk} from 'redux-thunk';
+import {createLogger} from 'redux-logger';
+import {applyMiddleware, combineReducers, compose, legacy_createStore as createStore} from 'redux';
 import {
 	appReducer,
 	cartReducer,

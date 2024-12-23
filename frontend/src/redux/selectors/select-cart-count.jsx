@@ -1,1 +1,1 @@
-export const selectCartCount = ({ cart }) => cart.products.length;
+export const selectCartCount = ({cart}) => cart.products.length;

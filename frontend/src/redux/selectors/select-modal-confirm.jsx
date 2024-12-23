@@ -1,1 +1,1 @@
-export const selectModalConfirm = ({ app }) => app.modal.onConfirm;
+export const selectModalConfirm = ({app}) => app.modal.onConfirm;

@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Pagination, ProductCard, Search } from './components/index.jsx';
-import { ERROR, fakeProduct } from '../../utils';
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { getTotalPages, selectProducts } from '../../redux/selectors/index.jsx';
-import { getProductsBySearchAsync } from '../../redux/action/index.jsx';
+import {Pagination, ProductCard, Search} from './components/index.jsx';
+import {ERROR, fakeProduct} from '../../utils';
+import {useParams} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {getTotalPages, selectProducts} from '../../redux/selectors/index.jsx';
+import {getProductsBySearchAsync} from '../../redux/action/index.jsx';
 
-const ArticleComponent = ({ className }) => {
-	const { categoryId } = useParams();
+const ArticleComponent = ({className}) => {
+	const {categoryId} = useParams();
 	const dispatch = useDispatch();
 	const totalPages = useSelector(getTotalPages);
 	const products = useSelector(selectProducts);
@@ -26,7 +26,7 @@ const ArticleComponent = ({ className }) => {
 		dispatch(getProductsBySearchAsync(debouncedSearchPhrase, categoryId));
 	}, [categoryId, debouncedSearchPhrase, dispatch]);
 
-	const onSearch = ({ target }) => {
+	const onSearch = ({target}) => {
 		setSearchPhrase(target.value);
 	};
 
@@ -50,7 +50,7 @@ const ArticleComponent = ({ className }) => {
 					)
 				) : (<div className="product-not-found">{`${ERROR.PRODUCTS_NOT_FOUND}`}</div>)}
 			</div>
-			{totalPages > 1 && products.length > 0 && (<Pagination />)}
+			{totalPages > 1 && products.length > 0 && (<Pagination/>)}
 		</article>
 	);
 };

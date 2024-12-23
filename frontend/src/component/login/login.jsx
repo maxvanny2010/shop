@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import * as yup from 'yup';
-import { useState } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { Navigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import {useState} from 'react';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {Navigate} from 'react-router-dom';
+import {useForm} from 'react-hook-form';
+import {useDispatch, useSelector} from 'react-redux';
 
-import { AuthErrorForm, Button, Icon, Input, SideActivator } from '../../component';
-import { ROLE } from '../../utils';
-import { CLOSE_LOGIN, loginAsync, OPEN_REGISTER } from '../../redux/action';
-import { selectSideLogin, selectUserRole } from '../../redux/selectors';
-import { useResetForm } from '../../hooks';
+import {AuthErrorForm, Button, Icon, Input, SideActivator} from '../../component';
+import {ROLE} from '../../utils';
+import {CLOSE_LOGIN, loginAsync, OPEN_REGISTER} from '../../redux/action';
+import {selectSideLogin, selectUserRole} from '../../redux/selectors';
+import {useResetForm} from '../../hooks';
 
 const StyledSignup = styled.div`
 	margin-top: 10px;
@@ -32,12 +32,12 @@ const authFormSchema = yup.object().shape({
 		.min(3, 'Password: min 3 symbols')
 		.max(30, 'Password: max 30 symbols'),
 });
-export const Login = ({ className }) => {
+export const Login = ({className}) => {
 	const {
 		register,
 		reset,
 		handleSubmit,
-		formState: { errors },
+		formState: {errors},
 	} = useForm({
 		defaultValue: {
 			login: '',
@@ -52,7 +52,7 @@ export const Login = ({ className }) => {
 
 	useResetForm(reset);
 
-	const onSubmit = ({ login, password }) => {
+	const onSubmit = ({login, password}) => {
 		dispatch(loginAsync(login, password, setServerError));
 	};
 
@@ -60,7 +60,7 @@ export const Login = ({ className }) => {
 		errors?.login?.message || errors?.password?.message;
 	const errorMessage = errorForm || serverError;
 
-	if (roleId !== ROLE.GUEST) return <Navigate to={`#`} />;
+	if (roleId !== ROLE.GUEST) return <Navigate to={`#`}/>;
 	if (!isOpen) return null;
 
 	return (
@@ -121,7 +121,7 @@ export const LoginContainer = styled.div`
 	padding: 20px;
 	background: white;
 	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-	transform: ${({ $isOpen }) => ($isOpen ? 'translateX(0)' : 'translateX(100%)')};
+	transform: ${({$isOpen}) => ($isOpen ? 'translateX(0)' : 'translateX(100%)')};
 	transition: transform 0.3s ease;
 
 	& > form {
