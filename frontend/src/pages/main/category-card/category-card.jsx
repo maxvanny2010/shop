@@ -29,7 +29,6 @@ export const CategoryCard = styled(CategoryCardComponent)`
 	width: 280px;
 	margin: 26px;
 	padding: 10px;
-	border: 1px solid #6b9317;
 
 	& img {
 		display: block;
