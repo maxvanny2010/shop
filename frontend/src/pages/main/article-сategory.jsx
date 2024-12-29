@@ -27,7 +27,6 @@ const ArticleCategoryComponent = ({className}) => {
 	);
 };
 export const ArticleCategory = styled(ArticleCategoryComponent)`
-	border: 1px solid #8DCC0A;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
